@@ -5,21 +5,19 @@ const SCISSORS = "Scissors";
 const CHOICES = [ROCK, PAPER, SCISSORS];
 
 // Returns computer selection
-function computerPlay() {
-    rand_index = Math.floor(Math.random() * CHOICES.length());
-    computerSelection = CHOICES[rand_index];
+function getComputerPlay() {
+    const rand_index = Math.floor(Math.random() * CHOICES.length);
+    const computerSelection = CHOICES[rand_index];
     return computerSelection;
 }
 
 // Validates and returns player selection
 function getPlayerSelection() {
-    let validPlayerSelection = False;
-    while (validPlayerSelection === False) {
-        player_input = prompt("Enter 'Rock', 'Paper', or 'Scissors': ");
-        for (i in CHOICES) {
-            if (player_input.equalsIgnoreCase(i)) {
-                player_input = i;
-                return player_input;
+    while (true) {
+        const player_input = prompt("Enter 'Rock', 'Paper', or 'Scissors': ");
+        for (const choice of CHOICES) {
+            if (player_input.toUpperCase() === choice.toUpperCase()) {
+                return choice;
             }
         }
         console.log("Invalid selection: Please choose Rock, Paper, or Scissors!");
@@ -28,7 +26,7 @@ function getPlayerSelection() {
 
 // Determines the winner of the round and returns the winner as a string
 function playRound(playerSelection, computerSelection) {
-    result = '';
+    let result = '';
     if (playerSelection === ROCK) {
         switch (computerSelection) {
             case PAPER:
@@ -84,10 +82,10 @@ function playGame() {
 
     console.log("Welcome to Rock Papper Scissors! You will play versus the computer. First to win 3 rounds wins the game!");
 
-    while (num_of_computer_wins < 3 || num_of_player_wins < 3) {
-        let playerSelection = getPlayerSelection()
-        let computerSelection = computerPlay();
-        let winner = playRound(playerSelection, computerSelection);
+    while (num_of_computer_wins < 3 && num_of_player_wins < 3) {
+        const playerSelection = getPlayerSelection()
+        const computerSelection = getComputerPlay();
+        const winner = playRound(playerSelection, computerSelection);
 
         num_of_rounds++;
 
@@ -103,10 +101,12 @@ function playGame() {
         }
         printCurrentScore();
     }
-    if (num_of_computer_wins > num_of_player_wins) {
+    if (num_of_computer_wins < num_of_player_wins) {
         console.log("Congratulations! You won the game!")
     } else {
         console.log("Sorry, you lost! Better luck next game!")
     }
 }
+
+playGame();
 
