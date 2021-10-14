@@ -7,25 +7,28 @@
 </head>
 <body>
     <div class="header">
-        Rock, Paper, Scissors!
+        <h1>Rock, Paper, Scissors!</h1>
     </div>
     <div class="center-display">
         <div class="user-button-container">
-            <button type="button">Rock</button>
-            <button type="button">Paper</button>
-            <button type="button">Scissors</button>
+            <button class="rock-button">Rock</button>
+            <button class="paper-button">Paper</button>
+            <button class="scissors-button">Scissors</button>
         </div>
         <div class="computer-button-container">
-            <button type="button">Rock</button>
-            <button type="button">Paper</button>
-            <button type="button">Scissors</button>
-        </div>
-        <div class="current-score">
-            <p></p>
+            <div class="fake-rock-button">Rock</div>
+            <div class="fake-paper-button">Paper</div>
+            <div class="fake-scissors-button">Scissors</div>
         </div>
     </div>
-    <div class="final-result">
-        <p></p>
+    <div class="current-score">
+        <p id="round-number"></p>
+        <p id="player-score"></p>
+        <p id="computer-score"></p>
+        <p id="number-of-ties"></p>
+    </div>
+    <div class="result">
+        <p id="result-str"></p>
     </div>
 <script src="script.js"></script>
 </body>

@@ -1,0 +1,40 @@
+.body {
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.center-display {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 20px;
+}
+
+.user-button-container {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.computer-button-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.current-score {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+.result {
+    display: flex;
+    padding: 10px;
+}
